@@ -2,8 +2,8 @@ def custom_write(file_name, strings):
     strings_positions = {}
 
     file = open(file_name, 'w', encoding='utf-8')
-    for idx, string in enumerate(strings, start=1): # start=1 начало нумерации строк в файле и на вывод
-        # не забыть - enumerate используется для получения индекса строки и самой строки из списка strings
+    for idx, string in enumerate(strings, start=1): # start=1 начало нумерации строк на вывод
+        # не забыть - enumerate выдает индекс элемента в strings
         byte_position = file.tell()
         file.write(string + '\n')
         strings_positions[(idx, byte_position)] = string  # idx - индекс строки (номер)
