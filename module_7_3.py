@@ -5,17 +5,13 @@ class WordsFinder:
     def get_all_words(self):
         all_words = {}
         for f_n in self.file_names:
-            try:
-                with open(f_n, encoding='utf-8') as file:
-                    text = file.read().lower()  # Приводим к нижнему регистру
-                    for sign in [',', '.', '=', '!', '?', ';', ':', '-', '(', ')', '"']:
-                        text = text.replace(sign, ' ')
-                    words = text.split()
-                    all_words[f_n] = words
-            except FileNotFoundError:
-                print(f"Файл '{f_n}' не найден.")
-            except Exception as e:
-                print(f"Ошибка при обработке файла '{f_n}': {e}")
+            with open(f_n, encoding='utf-8') as file:
+                text = file.read().lower()  # Приводим к нижнему регистру
+                for sign in [',', '.', '=', '!', '?', ';', ':', '-', '(', ')', '"']:
+                    text = text.replace(sign, ' ')
+                words = text.split()
+                all_words[f_n] = words
+
         return all_words
 
     def find(self, word):
