@@ -6,8 +6,8 @@ class WordsFinder:
         all_words = {}
         for f_n in self.file_names:
             with open(f_n, encoding='utf-8') as file:
-                text = file.read().lower()  # Приводим к нижнему регистру
-                for sign in [',', '.', '=', '!', '?', ';', ':', '-', '(', ')', '"']:
+                text = file.read().lower()
+                for sign in [',', '.', '=', '!', '?', ';', ':', ' - ']:
                     text = text.replace(sign, ' ')
                 words = text.split()
                 all_words[f_n] = words
